@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../static/mexico.jpg);
+    background-position: center;
+    background-attachment:local;
+    background-position: center;
+    background-size: cover;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(109.6deg, rgb(0, 0, 0, 0.75) 11.2%, rgb(247, 30, 30, 0.75) 100.3%); 
+    background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/*page content*/
+
+.container {
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.content-section {
+    float: left;
+    width: 55%;
+}
+
+.image {
+    float: right;
+    width: 40%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 3px solid #ffffff00;
+}
+
+h1 {
+    margin: auto;
+    font-size: 100;
+    font-weight: 200;
+    background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #fff, transparent, transparent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: start 3000ms ease-in-out forwards 200ms,
+        glow 2500ms linear infinite 2000ms;
+}
+
+@keyframes start {
+    80% {
+        letter-spacing: 8px;
+    }
+
+    100% {
+        background-size: 300% 300%;
+    }
+}
+
+@keyframes glow {
+    40% {
+        text-shadow: 0 0 8px #fff;
+    }
+}
+
+.content-section .content {
+    margin-top: 20px;
+    color: white;
+    margin: auto;
+    background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #fff, white, white);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: underline;
+    animation: start 3000ms ease-in-out forwards 200ms;
+}
+
+@keyframes start {
+    100% {
+        background-size: 300% 300%;
+    }
+}
+
+h2 {
+    margin-top: 20px;
+    color: white;
+    margin: auto;
+    background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #fff, white, white);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: underline;
+    animation: start 3000ms ease-in-out forwards 200ms;
+}
+
+.swiper {
+    height: 345;
+    width: auto;
+    border-radius: 10px;
+    border: 3px solid #fff;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    color: rgba(114, 102, 102, 0.397);
+}
+
+.swiper .swiper-button-prev:hover,
+.swiper .swiper-button-next:hover {
+    color: #fff;
+}
+
+.swiper .swiper-pagination-bullet-active {
+    background: #fff;
+}

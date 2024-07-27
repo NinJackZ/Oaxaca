@@ -1,0 +1,92 @@
+<!-- all content must be inside `block content` and `endblock`-->
+<title>{% block title %}About - Oaxaca{% endblock %}</title>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<head>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='aboutpage.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-section">
+            <div class="title">
+                <h1>About Us</h1>
+            </div>
+            <div class="content">
+                Our restaurant, Oaxaca, started in 2007 with our unique style of mexican food.
+                Now we are growing slowly in London and the UK.
+                We have been expanding the past 10 years and now we have 25 restaurants. We would
+                like to thank everyone who has supported us and helped us grow.
+                <br>
+                <br>Take a look at these images of some of our branches and our
+                most popular dishes! To take a look at our menu, put your table number in the prompt
+                under the menu to see what we have to serve.
+                <br>
+                <br>
+                <h2>Group 29</h2>
+                <br>
+                Ismail Abdul Sattar<br>
+                Samuel Bennett<br>
+                Salma Bocus<br>
+                Kei Chan<br>
+                Jessada Khaoseengam<br>
+                Raphael Magrina<br>
+                Augusta Martins-Mondim<br>
+                Man Ong<br>
+                Lok Yeung
+            </div>
+        </div>
+        <div class="image">
+            <!-- First image container -->
+            <div class="swiper">
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide"><img src="{{url_for('static', filename='restaurant1.png')}}"></div>
+                    <div class="swiper-slide"><img src="{{url_for('static', filename='restaurant2.jpg')}}"></div>
+                    <div class="swiper-slide"><img src="{{url_for('static', filename='restaurant3.png')}}"></div>
+                    <div class="swiper-slide"><img src="{{url_for('static', filename='food.jpg')}}"></div>
+                    <div class="swiper-slide"><img src="{{url_for('static', filename='food2.jpg')}}"></div>
+                    <div class="swiper-slide"><img src="{{url_for('static', filename='tacos.jpg')}}"></div>
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            loop: true,
+
+            // pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+</body>
+
+{% endblock %}

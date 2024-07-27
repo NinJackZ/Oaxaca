@@ -1,0 +1,102 @@
+<!-- all content must be inside `block content` and `endblock`-->
+{% extends "base-admin.html" %}
+
+<title>{% block title %}Edit Menu{% endblock %}</title>
+
+{% block content %}
+
+<div class="container text-center">
+    <h2>Edit Menu</h2>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price (£)</th>
+      <th scope="col">Calories(kCal)</th>
+      <th scope="col">Dietary Info</th>
+      <th scope="col">Delete item</th>
+      <th scope="col">Sold out</th>
+      <th scope="col">Status</th>
+    </tr>
+        <br><br><h3>Food</h3>
+  </thead>
+<div class="item">
+    <tbody>
+        {% for food in foods %}
+            <tr>
+                <td>{{ food.name }}</td>
+                <td>{{ food.price }}</td>
+                <td>{{ food.cals }}</td>
+                <td>{{ food.diet }}</td>
+                <form action = '/edit-menu/delete/{{food.id}}/' method = 'POST'>
+                    <td>
+                    <button type="submit">Delete</button>
+                    </td>
+                </form>
+                <form action = '/edit-menu/soldout/{{food.id}}/' method='POST'>
+                    <td>
+                        <button type="submit">Sold Out</button>
+                    </td>
+                </form>
+                <td>{{ food.soldout }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Price (£)</th>
+          <th scope="col">Calories(kCal)</th>
+          <th scope="col">Dietary Info</th>
+          <th scope="col">Delete item</th>
+          <th scope="col">Sold out</th>
+          <th scope="col">Status</th>
+        </tr>
+            <br><br><h3>Drinks</h3>
+      </thead>
+    <div class="item">
+        <tbody>
+            {% for drink in drinks %}
+                <tr>
+                    <td>{{ drink.name }}</td>
+                    <td>{{ drink.price }}</td>
+                    <td>{{ drink.cals }}</td>
+                    <td>{{ drink.diet }}</td>
+                    <form action = '/edit-menu/delete/{{drink.id}}/' method = 'POST'>
+                        <td>
+                            <button type="submit">Delete</button>
+                        </td>
+                    </form>
+                    <form action = '/edit-menu/soldout/{{drink.id}}/' method='POST'>
+                        <td>
+                            <button type="submit">Sold Out</button>
+                        </td>
+                    </form>
+                    <td>{{ drink.soldout }}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </div>
+</table>
+
+
+<form action="/edit-menu/add/" method="post" enctype="multipart/form-data">
+    <input type="text" name="item_name" id="item_name" placeholder="name">
+    <select name="type" id="type">
+        <option value="food">Food</option>
+        <option value="drink">Drink</option>
+      </select>
+    <input type="text" name="price" id="price" placeholder="price">
+    <input type="text" name="calories" id="calories" placeholder="calories">
+    <input type="file" name="image">
+    <input type="checkbox" name="vegan" id="vegan"> Vegan</input>
+    <input type="checkbox" name="alcohol" id="alcohol"> Alcohol</input>
+
+
+    <button id="order_button">Add Item</button>
+</form>
+{% endblock %}

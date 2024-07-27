@@ -1,0 +1,88 @@
+<div class="container text-center">
+<h2>Payment Pending</h2>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Table Num</th>
+      <th scope="col">Item</th>
+      <th scope="col">Price (£)</th>
+      <th scope="col">Paid</th>
+    </tr>
+  </thead>
+<div class="item">
+    <tbody>
+        {% for order in pending %}
+            <tr>
+                <td>{{ order.table_id}}</td>
+                <td>{{ order.menu_item }}</td>
+                <td>{{ order.menu_price }}</td>
+                <td> 
+                    <form action="/paid/{{order.id}}" method="GET">
+                        <button>Paid</button>
+                    </form>
+                </td>
+                <td> 
+                    <form action="/cancel/{{order.id}}" method="GET">
+                        <button>Cancel</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="container text-center">
+    <h2>Ready To Serve</h2>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Table Num</th>
+          <th scope="col">Item</th>
+          <th scope="col">Price (£)</th>
+          <th scope="col">Paid</th>
+        </tr>
+      </thead>
+    <div class="item">
+        <tbody>
+            {% for order in ready %}
+                <tr>
+                    <td>{{ order.table_id}}</td>
+                    <td>{{ order.menu_item }}</td>
+                    <td>{{ order.menu_price }}</td>
+                    <td>
+                    <form action="/delivered/{{ order.id }}" method="GET">
+                        <button>Delivered</button>
+                    </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+<div class="container text-center">
+    <h2>Tables Calling</h2>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Table Num</th>
+
+        </tr>
+      </thead>
+    <div class="item">
+        <tbody>
+            {% for table in tableStatus %}
+                <tr>
+                    <td>{{ table.table_id}}</td>
+                    <td>
+                        <form action="/WaiterCalledFin/{{ table.table_id }}" method="GET">
+                            <button>Going</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>

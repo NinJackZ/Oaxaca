@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>app package &mdash; Oaxaca restaurant 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="driver module" href="driver.html" />
+    <link rel="prev" title="PROJECT" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Oaxaca restaurant
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">PROJECT</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">app package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.add_image">app.add_image module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.edit_menu">app.edit_menu module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_menu.editmenu"><code class="docutils literal notranslate"><span class="pre">editmenu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_menu.editmenu_add"><code class="docutils literal notranslate"><span class="pre">editmenu_add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_menu.editmenu_delete"><code class="docutils literal notranslate"><span class="pre">editmenu_delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_menu.editmenu_soldout"><code class="docutils literal notranslate"><span class="pre">editmenu_soldout()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.edit_orders">app.edit_orders module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_orders.cancel"><code class="docutils literal notranslate"><span class="pre">cancel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_orders.cook"><code class="docutils literal notranslate"><span class="pre">cook()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_orders.delete"><code class="docutils literal notranslate"><span class="pre">delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_orders.delivered"><code class="docutils literal notranslate"><span class="pre">delivered()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_orders.paid"><code class="docutils literal notranslate"><span class="pre">paid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.edit_orders.waiterCalled"><code class="docutils literal notranslate"><span class="pre">waiterCalled()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.extensions">app.extensions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.info">app.info module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.info.about"><code class="docutils literal notranslate"><span class="pre">about()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.info.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.kitchen">app.kitchen module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.kitchen.statuskitchen"><code class="docutils literal notranslate"><span class="pre">statuskitchen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.kitchen.statuskitcheninner"><code class="docutils literal notranslate"><span class="pre">statuskitcheninner()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.login">app.login module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.login.hash"><code class="docutils literal notranslate"><span class="pre">hash()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.login.load_user"><code class="docutils literal notranslate"><span class="pre">load_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.login.login"><code class="docutils literal notranslate"><span class="pre">login()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.login.logout"><code class="docutils literal notranslate"><span class="pre">logout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.login.make_session_permanent"><code class="docutils literal notranslate"><span class="pre">make_session_permanent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.models">app.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.Admin_User"><code class="docutils literal notranslate"><span class="pre">Admin_User</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.Menu"><code class="docutils literal notranslate"><span class="pre">Menu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.Orders"><code class="docutils literal notranslate"><span class="pre">Orders</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.Orders_archive"><code class="docutils literal notranslate"><span class="pre">Orders_archive</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.Waiter_calling"><code class="docutils literal notranslate"><span class="pre">Waiter_calling</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.view_menu">app.view_menu module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.view_menu.menu"><code class="docutils literal notranslate"><span class="pre">menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.view_menu.menuAdd"><code class="docutils literal notranslate"><span class="pre">menuAdd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.view_menu.tableMenu"><code class="docutils literal notranslate"><span class="pre">tableMenu()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.view_orders">app.view_orders module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.view_orders.orders"><code class="docutils literal notranslate"><span class="pre">orders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.view_orders.sumPrice"><code class="docutils literal notranslate"><span class="pre">sumPrice()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.waiter">app.waiter module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.waiter.statuswaiterinner"><code class="docutils literal notranslate"><span class="pre">statuswaiterinner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.waiter.statuswaitermenu"><code class="docutils literal notranslate"><span class="pre">statuswaitermenu()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="driver.html">driver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup_db.html">setup_db module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html">test package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Oaxaca restaurant</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">PROJECT</a></li>
+      <li class="breadcrumb-item active">app package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="app-package">
+<h1>app package<a class="headerlink" href="#app-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-app.add_image">
+<span id="app-add-image-module"></span><h2>app.add_image module<a class="headerlink" href="#module-app.add_image" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-app.edit_menu">
+<span id="app-edit-menu-module"></span><h2>app.edit_menu module<a class="headerlink" href="#module-app.edit_menu" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_menu.editmenu">
+<span class="sig-prename descclassname"><span class="pre">app.edit_menu.</span></span><span class="sig-name descname"><span class="pre">editmenu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_menu.html#editmenu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_menu.editmenu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_menu.editmenu_add">
+<span class="sig-prename descclassname"><span class="pre">app.edit_menu.</span></span><span class="sig-name descname"><span class="pre">editmenu_add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_menu.html#editmenu_add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_menu.editmenu_add" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_menu.editmenu_delete">
+<span class="sig-prename descclassname"><span class="pre">app.edit_menu.</span></span><span class="sig-name descname"><span class="pre">editmenu_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_menu.html#editmenu_delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_menu.editmenu_delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_menu.editmenu_soldout">
+<span class="sig-prename descclassname"><span class="pre">app.edit_menu.</span></span><span class="sig-name descname"><span class="pre">editmenu_soldout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_menu.html#editmenu_soldout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_menu.editmenu_soldout" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app.edit_orders">
+<span id="app-edit-orders-module"></span><h2>app.edit_orders module<a class="headerlink" href="#module-app.edit_orders" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_orders.cancel">
+<span class="sig-prename descclassname"><span class="pre">app.edit_orders.</span></span><span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_orders.html#cancel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_orders.cancel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_orders.cook">
+<span class="sig-prename descclassname"><span class="pre">app.edit_orders.</span></span><span class="sig-name descname"><span class="pre">cook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_orders.html#cook"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_orders.cook" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_orders.delete">
+<span class="sig-prename descclassname"><span class="pre">app.edit_orders.</span></span><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_orders.html#delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_orders.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_orders.delivered">
+<span class="sig-prename descclassname"><span class="pre">app.edit_orders.</span></span><span class="sig-name descname"><span class="pre">delivered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_orders.html#delivered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_orders.delivered" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_orders.paid">
+<span class="sig-prename descclassname"><span class="pre">app.edit_orders.</span></span><span class="sig-name descname"><span class="pre">paid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_orders.html#paid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_orders.paid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.edit_orders.waiterCalled">
+<span class="sig-prename descclassname"><span class="pre">app.edit_orders.</span></span><span class="sig-name descname"><span class="pre">waiterCalled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/edit_orders.html#waiterCalled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.edit_orders.waiterCalled" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app.extensions">
+<span id="app-extensions-module"></span><h2>app.extensions module<a class="headerlink" href="#module-app.extensions" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-app.info">
+<span id="app-info-module"></span><h2>app.info module<a class="headerlink" href="#module-app.info" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.info.about">
+<span class="sig-prename descclassname"><span class="pre">app.info.</span></span><span class="sig-name descname"><span class="pre">about</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/info.html#about"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.info.about" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.info.home">
+<span class="sig-prename descclassname"><span class="pre">app.info.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/info.html#home"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.info.home" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app.kitchen">
+<span id="app-kitchen-module"></span><h2>app.kitchen module<a class="headerlink" href="#module-app.kitchen" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.kitchen.statuskitchen">
+<span class="sig-prename descclassname"><span class="pre">app.kitchen.</span></span><span class="sig-name descname"><span class="pre">statuskitchen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/kitchen.html#statuskitchen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.kitchen.statuskitchen" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.kitchen.statuskitcheninner">
+<span class="sig-prename descclassname"><span class="pre">app.kitchen.</span></span><span class="sig-name descname"><span class="pre">statuskitcheninner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/kitchen.html#statuskitcheninner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.kitchen.statuskitcheninner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app.login">
+<span id="app-login-module"></span><h2>app.login module<a class="headerlink" href="#module-app.login" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.login.hash">
+<span class="sig-prename descclassname"><span class="pre">app.login.</span></span><span class="sig-name descname"><span class="pre">hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/login.html#hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.login.hash" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.login.load_user">
+<span class="sig-prename descclassname"><span class="pre">app.login.</span></span><span class="sig-name descname"><span class="pre">load_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/login.html#load_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.login.load_user" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.login.login">
+<span class="sig-prename descclassname"><span class="pre">app.login.</span></span><span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/login.html#login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.login.login" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.login.logout">
+<span class="sig-prename descclassname"><span class="pre">app.login.</span></span><span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/login.html#logout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.login.logout" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.login.make_session_permanent">
+<span class="sig-prename descclassname"><span class="pre">app.login.</span></span><span class="sig-name descname"><span class="pre">make_session_permanent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/login.html#make_session_permanent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.login.make_session_permanent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app.models">
+<span id="app-models-module"></span><h2>app.models module<a class="headerlink" href="#module-app.models" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.Admin_User">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">Admin_User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#Admin_User"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.Admin_User" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Admin_User.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#app.models.Admin_User.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Admin_User.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#app.models.Admin_User.password" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Admin_User.query">
+<span class="sig-name descname"><span class="pre">query</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Query</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.Admin_User.query" title="Permalink to this definition"></a></dt>
+<dd><p>A SQLAlchemy query for a model. Equivalent to <code class="docutils literal notranslate"><span class="pre">db.session.query(Model)</span></code>. Can be
+customized per-model by overriding <code class="xref py py-attr docutils literal notranslate"><span class="pre">query_class</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The query interface is considered legacy in SQLAlchemy. Prefer using
+<code class="docutils literal notranslate"><span class="pre">session.execute(select())</span></code> instead.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Admin_User.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#app.models.Admin_User.type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Admin_User.username">
+<span class="sig-name descname"><span class="pre">username</span></span><a class="headerlink" href="#app.models.Admin_User.username" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.Menu">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">Menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#Menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.Menu" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.cals">
+<span class="sig-name descname"><span class="pre">cals</span></span><a class="headerlink" href="#app.models.Menu.cals" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.diet">
+<span class="sig-name descname"><span class="pre">diet</span></span><a class="headerlink" href="#app.models.Menu.diet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#app.models.Menu.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.image">
+<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#app.models.Menu.image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#app.models.Menu.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#app.models.Menu.price" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.query">
+<span class="sig-name descname"><span class="pre">query</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Query</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.Menu.query" title="Permalink to this definition"></a></dt>
+<dd><p>A SQLAlchemy query for a model. Equivalent to <code class="docutils literal notranslate"><span class="pre">db.session.query(Model)</span></code>. Can be
+customized per-model by overriding <code class="xref py py-attr docutils literal notranslate"><span class="pre">query_class</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The query interface is considered legacy in SQLAlchemy. Prefer using
+<code class="docutils literal notranslate"><span class="pre">session.execute(select())</span></code> instead.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.soldout">
+<span class="sig-name descname"><span class="pre">soldout</span></span><a class="headerlink" href="#app.models.Menu.soldout" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Menu.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#app.models.Menu.type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.Orders">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">Orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#Orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.Orders" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.delivery_time">
+<span class="sig-name descname"><span class="pre">delivery_time</span></span><a class="headerlink" href="#app.models.Orders.delivery_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.edit">
+<span class="sig-name descname"><span class="pre">edit</span></span><a class="headerlink" href="#app.models.Orders.edit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#app.models.Orders.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.menu_item">
+<span class="sig-name descname"><span class="pre">menu_item</span></span><a class="headerlink" href="#app.models.Orders.menu_item" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.menu_price">
+<span class="sig-name descname"><span class="pre">menu_price</span></span><a class="headerlink" href="#app.models.Orders.menu_price" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.order_time">
+<span class="sig-name descname"><span class="pre">order_time</span></span><a class="headerlink" href="#app.models.Orders.order_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.query">
+<span class="sig-name descname"><span class="pre">query</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Query</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.Orders.query" title="Permalink to this definition"></a></dt>
+<dd><p>A SQLAlchemy query for a model. Equivalent to <code class="docutils literal notranslate"><span class="pre">db.session.query(Model)</span></code>. Can be
+customized per-model by overriding <code class="xref py py-attr docutils literal notranslate"><span class="pre">query_class</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The query interface is considered legacy in SQLAlchemy. Prefer using
+<code class="docutils literal notranslate"><span class="pre">session.execute(select())</span></code> instead.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#app.models.Orders.status" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders.table_id">
+<span class="sig-name descname"><span class="pre">table_id</span></span><a class="headerlink" href="#app.models.Orders.table_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.Orders_archive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">Orders_archive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#Orders_archive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.Orders_archive" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.delivery_time">
+<span class="sig-name descname"><span class="pre">delivery_time</span></span><a class="headerlink" href="#app.models.Orders_archive.delivery_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.edit">
+<span class="sig-name descname"><span class="pre">edit</span></span><a class="headerlink" href="#app.models.Orders_archive.edit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#app.models.Orders_archive.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.menu_item">
+<span class="sig-name descname"><span class="pre">menu_item</span></span><a class="headerlink" href="#app.models.Orders_archive.menu_item" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.menu_price">
+<span class="sig-name descname"><span class="pre">menu_price</span></span><a class="headerlink" href="#app.models.Orders_archive.menu_price" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.order_time">
+<span class="sig-name descname"><span class="pre">order_time</span></span><a class="headerlink" href="#app.models.Orders_archive.order_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.query">
+<span class="sig-name descname"><span class="pre">query</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Query</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.Orders_archive.query" title="Permalink to this definition"></a></dt>
+<dd><p>A SQLAlchemy query for a model. Equivalent to <code class="docutils literal notranslate"><span class="pre">db.session.query(Model)</span></code>. Can be
+customized per-model by overriding <code class="xref py py-attr docutils literal notranslate"><span class="pre">query_class</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The query interface is considered legacy in SQLAlchemy. Prefer using
+<code class="docutils literal notranslate"><span class="pre">session.execute(select())</span></code> instead.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#app.models.Orders_archive.status" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Orders_archive.table_id">
+<span class="sig-name descname"><span class="pre">table_id</span></span><a class="headerlink" href="#app.models.Orders_archive.table_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.Waiter_calling">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">Waiter_calling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#Waiter_calling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.Waiter_calling" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Waiter_calling.query">
+<span class="sig-name descname"><span class="pre">query</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Query</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.Waiter_calling.query" title="Permalink to this definition"></a></dt>
+<dd><p>A SQLAlchemy query for a model. Equivalent to <code class="docutils literal notranslate"><span class="pre">db.session.query(Model)</span></code>. Can be
+customized per-model by overriding <code class="xref py py-attr docutils literal notranslate"><span class="pre">query_class</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The query interface is considered legacy in SQLAlchemy. Prefer using
+<code class="docutils literal notranslate"><span class="pre">session.execute(select())</span></code> instead.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Waiter_calling.table_id">
+<span class="sig-name descname"><span class="pre">table_id</span></span><a class="headerlink" href="#app.models.Waiter_calling.table_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Waiter_calling.waiterCalled">
+<span class="sig-name descname"><span class="pre">waiterCalled</span></span><a class="headerlink" href="#app.models.Waiter_calling.waiterCalled" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-app.view_menu">
+<span id="app-view-menu-module"></span><h2>app.view_menu module<a class="headerlink" href="#module-app.view_menu" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.view_menu.menu">
+<span class="sig-prename descclassname"><span class="pre">app.view_menu.</span></span><span class="sig-name descname"><span class="pre">menu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/view_menu.html#menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.view_menu.menu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.view_menu.menuAdd">
+<span class="sig-prename descclassname"><span class="pre">app.view_menu.</span></span><span class="sig-name descname"><span class="pre">menuAdd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/view_menu.html#menuAdd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.view_menu.menuAdd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.view_menu.tableMenu">
+<span class="sig-prename descclassname"><span class="pre">app.view_menu.</span></span><span class="sig-name descname"><span class="pre">tableMenu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/view_menu.html#tableMenu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.view_menu.tableMenu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app.view_orders">
+<span id="app-view-orders-module"></span><h2>app.view_orders module<a class="headerlink" href="#module-app.view_orders" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.view_orders.orders">
+<span class="sig-prename descclassname"><span class="pre">app.view_orders.</span></span><span class="sig-name descname"><span class="pre">orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/view_orders.html#orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.view_orders.orders" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.view_orders.sumPrice">
+<span class="sig-prename descclassname"><span class="pre">app.view_orders.</span></span><span class="sig-name descname"><span class="pre">sumPrice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orderdb</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/view_orders.html#sumPrice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.view_orders.sumPrice" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app.waiter">
+<span id="app-waiter-module"></span><h2>app.waiter module<a class="headerlink" href="#module-app.waiter" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.waiter.statuswaiterinner">
+<span class="sig-prename descclassname"><span class="pre">app.waiter.</span></span><span class="sig-name descname"><span class="pre">statuswaiterinner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/waiter.html#statuswaiterinner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.waiter.statuswaiterinner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.waiter.statuswaitermenu">
+<span class="sig-prename descclassname"><span class="pre">app.waiter.</span></span><span class="sig-name descname"><span class="pre">statuswaitermenu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/waiter.html#statuswaitermenu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.waiter.statuswaitermenu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="PROJECT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="driver.html" class="btn btn-neutral float-right" title="driver module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Team 29.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+flask~=2.2.2
+flask-sqlalchemy
+flask-login
+<<<<<<< HEAD
+selenium~=4.8.2
+webdriver-manager
+WTForms~=3.0.1
+=======
+selenium
+webdriver-manager
+sphinx
+sphinx_rtd_theme
+>>>>>>> main
+GIT 

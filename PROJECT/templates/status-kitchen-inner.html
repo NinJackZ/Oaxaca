@@ -1,0 +1,29 @@
+<h2>Orders</h2>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Table Num</th>
+      <th scope="col">Item</th>
+      <th scope="col">Price (£)</th>
+      <th scope="col">Edits</th>
+      <th scope="col">Complete Order</th>
+    </tr>
+  </thead>
+<div class="item">
+    <tbody>
+      {% for order in orderdb %}
+            <tr>
+                <td>{{ order.table_id}}</td>
+                <td>{{ order.menu_item }}</td>
+                <td>{{ order.order_time }}</td>
+                <td>{{ order.edit }}</td>
+                <td>
+                  <form action="/cook/{{ order.id }}" method="GET">
+                    <button>Ready to be served</button>
+                  </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,4 @@
+# ignores specific webdriver files for selenium
+.exe
+.idea/
+.idea/workspace.xml

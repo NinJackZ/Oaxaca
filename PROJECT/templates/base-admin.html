@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  {% block head %}{% endblock %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{url_for('static', filename='style-admin.css')}}">
+  <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}">
+  <script src="{{url_for('static', filename='script.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>{% block title %}{% endblock %} - STAFF AREA</title>
+</head>
+
+<body>
+  <!-- Header banner-->
+<nav class="navbar navbar-expand-lg bg-dark-subtle" >
+    <div class="container-fluid" >
+      <a class="navbar-brand" href="/">
+          <img src="{{url_for('static', filename='logo-admin.png')}}" alt="Oaxaca">
+      </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-item nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link active" href="/edit-menu">Edit Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link active" href="/status-kitchen">Kitchen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link active" href="/status-waiter">Waiter</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link active" href="/logout" class="text-danger" >Logout</a>
+            </li>
+        </ul>
+  </div>
+</nav>
+
+
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <div id="footer">
+    <footer>
+      {% block footer %}
+      &copy; Copyright 2023 by <a href="/about">Group 29</a>.
+      {% endblock %}
+    </footer>
+  </div>
+</body>

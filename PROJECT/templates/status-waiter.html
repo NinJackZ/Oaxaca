@@ -1,0 +1,19 @@
+<!-- all content must be inside `block content` and `endblock`-->
+{% extends "base-admin.html" %}
+
+<title>{% block title %}Waiter Status{% endblock %}</title>
+
+{% block content %}
+
+<script>
+    $("#content").load("/status-waiter-inner");
+    
+    setInterval(function(){  
+        $(document).ready(function(){
+            $("#content").load("/status-waiter-inner");
+        });   
+    }, 5000);
+</script>
+    
+
+{% endblock %}

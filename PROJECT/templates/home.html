@@ -1,0 +1,39 @@
+<!-- all content must be inside `block content` and `endblock`-->
+
+<title>{% block title %}Home - Oaxaca{% endblock %}</title>
+
+{% block head %}
+<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='homepage.css')}}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+{% endblock %}
+
+{% block content %}
+
+  <div class="banner">
+    <div class="container">
+      <div class="inner-container">
+        <div class="navbar">
+          <img src="{{url_for('static', filename='logo.png')}}" class="logo">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/menu">Menu</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/login">Staff Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="content">
+            <h1 class="title">Fine Dine <br> THE MEXICAN WAY.</h1>
+            <p>Serving Wonderful Mexican Flavours Since 2007</p>
+              <div>
+                <a href= "/menu"><button type="button"><span></span>Our Food</button></a>
+                <div><a href = "/about"><button type="button"><span></span>About</button></a></div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

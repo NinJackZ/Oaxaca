@@ -1,0 +1,70 @@
+<!-- all content must be inside `block content` and `endblock`-->
+<title>{% block title %}Menu - Oaxaca{% endblock %}</title>
+
+{% extends "base.html" %}
+
+{% block head %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('static', filename='menu.css')}}">
+<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}">
+<script src="{{url_for('static', filename='script.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center">
+  <h2>{{food.name}}</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Price (£)</th>
+        <th scope="col">Calories (kCal)</th>
+        <th scope="col">Dietary Info</th>
+        <th scope="col">Select Which Ingredient To Take Out</th>
+      </tr>
+    </thead>
+    <tbody>
+        <div class="item">
+            <tr>
+                <td><img src="/static/Menu_items/{{ food.image }}" width="150"></td>
+                <td>{{ food.price }}</td>
+                <td>{{ food.cals }}</td>
+                <td>{{ food.diet }}</td>
+                <td>
+                    <ul> 
+                        <form action = '/edit-add/{{num}}/{{food.id}}/' method = 'POST'>
+                            {% for i in ingre %}
+                                <li>
+                                    <input type="checkbox" id="edit {{i}}" name ='edit {{i}}' value="no {{i}}" >
+                                    <label for="edit {{i}}">{{i}}</label>
+                                </li>
+                            {% endfor %}
+                            <button type="submit">Confirm</button>
+                        </form>
+                    </ul>
+                </td>
+                
+            </tr>
+        </div>
+    <tr>
+
+</table>
+
+<form action="/menu-order/{{num}}" method="GET">
+    <button id="button"><span></span>Return</button>
+</form>
+{% endblock %}
+
+{% block footer %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+  {% endblock %}

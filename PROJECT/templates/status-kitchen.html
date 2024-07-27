@@ -1,0 +1,23 @@
+<!-- all content must be inside `block content` and `endblock`-->
+{% extends "base-admin.html" %}
+
+<title>
+  {% block title %}
+    Kitchen Staff Status
+  {% endblock %}
+</title>
+
+{% block content %}
+
+<script>
+  $("#content").load("/status-kitchen-inner");
+  
+  setInterval(function(){  
+  $(document).ready(function(){
+    $("#content").load("/status-kitchen-inner");
+  });   
+  }, 5000);
+</script>
+  
+
+{% endblock %}
